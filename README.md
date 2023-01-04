@@ -1,3 +1,6 @@
-Cmd in project folder
-cd music-app
-npm start
+# Run App
+    - Open Cmd in Project Folder
+    - Type 'cd music-app'
+    - TYpe 'npm start'
+
+# 
