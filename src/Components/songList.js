@@ -25,28 +25,30 @@ export class SongList extends React.Component {
     render() {
         return (
             <div className="SongItem">
-                <img src = {this.props.song.cover}></img>
-                {/* Print out info from Array as Cards */}
-                <Card>
-                    {/* Song Title */}
-                    {/* <Card.Img type="alt">{this.props.song.cover}</Card.Img> */}
+                <center>
+                    {/* Print out info from Array as Cards */}
+                    <Card style={{ width: '80%' }}>
+                        {/* Displaying bootstrap Song cards by using props */}
+                        <Card.Header>
+                            <Card.Title>{this.props.song.title}</Card.Title>
+                        </Card.Header>
 
-                    {/* Displaying bootstrap Song cards by using props */}
-                    <Card.Body>
-                        <Card.Header>{this.props.song.title}</Card.Header>
-                        <Card.Title>{this.props.song.artist}</Card.Title>
-                        <Card.Subtitle>Album: {this.props.song.album}</Card.Subtitle>
-                        <Card.Text>Total Steams: {this.props.song.streams}</Card.Text>
-                    </Card.Body>
+                        <Card.Body>
+                            <Card.Img src={this.props.song.cover} style={{ width: "80%" }}></Card.Img>
+                            <Card.Title>{this.props.song.artist}</Card.Title>
+                            <Card.Subtitle>Album: {this.props.song.album}</Card.Subtitle>
+                            <Card.Text>Total Steams: {this.props.song.streams}</Card.Text>
+                        </Card.Body>
 
-                    <Card.Footer>
-                        {/* Edit */}
-                        <Link to={'/editSong/:' + this.props.song._id} className="btn btn-primary">Edit</Link>
+                        <Card.Footer>
+                            {/* Edit */}
+                            <Link to={'/editSong/:' + this.props.song._id} className="btn btn-primary">Edit</Link>
 
-                        {/* Deletes Song and reloads page */}
-                        <Button variant="danger" onClick={this.DeleteSong} style={{margin: "10px"}}>Delete</Button>
-                    </Card.Footer>
-                </Card>
+                            {/* Deletes Song and reloads page */}
+                            <Button variant="danger" onClick={this.DeleteSong} style={{ margin: "10px" }}>Delete</Button>
+                        </Card.Footer>
+                    </Card>
+                </center>
             </div>
         )
     }

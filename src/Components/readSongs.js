@@ -25,9 +25,9 @@ export class ReadSong extends React.Component {
         axios.get('http://localhost:2000/api/songs')
             //When Request Completed
             .then((response) => {
-                    // Update State
-                    this.setState({ songs: response.data });
-                }
+                // Update State
+                this.setState({ songs: response.data });
+            }
             )
             //If Request returns error
             .catch(
@@ -45,9 +45,11 @@ export class ReadSong extends React.Component {
     render() {
         return (
             <div className="App">
-                <h3>All Songs Listed Below</h3>
-                {/* Display Book Class from Book Component & Pass in Variable */}
-                <Songs songs={this.state.songs} reload={this.reload}></Songs>
+                <center>
+                    <h3>All Songs Listed Below</h3>
+                    {/* Display Book Class from Book Component & Pass in Variable */}
+                    <Songs songs={this.state.songs} reload={this.reload}></Songs>
+                </center>
             </div>
         )
     }

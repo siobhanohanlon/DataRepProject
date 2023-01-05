@@ -36,7 +36,6 @@ class App extends React.Component {
               <Nav className="me-auto">
                 <Nav.Link href="/readSong">Home</Nav.Link>
                 <Nav.Link href="/addSong">Add Song</Nav.Link>
-                <Nav.Link href="/editSong">Edit Song</Nav.Link>
               </Nav>
             </Container>
           </Navbar>

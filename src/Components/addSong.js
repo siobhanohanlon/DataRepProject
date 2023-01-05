@@ -106,31 +106,31 @@ export class AddSong extends React.Component {
                     {/* Title */}
                     <div className="form-group">
                         <label htmlFor="title" className="title">Song Title: </label>
-                        <input id="title" type="text" value={this.state.title} onChange={this.onChangeTitle} />
+                        <input id="title" type="text" value={this.state.title} onChange={this.onChangeTitle} required />
                     </div>
 
                     {/* Cover */}
                     <div className="form-group">
                         <label htmlFor="cover" className="cover">Song Cover: </label>
-                        <input id="cover" type="text" value={this.state.cover} onChange={this.onChangeCover} />
+                        <input id="cover" type="text" value={this.state.cover} onChange={this.onChangeCover} required />
                     </div>
 
                     {/* Artist */}
                     <div className="form-group">
                         <label htmlFor="artist" className="artist">Song Artist: </label>
-                        <input id="artist" type="text" value={this.state.artist} onChange={this.onChangeArtist} />
+                        <input id="artist" type="text" value={this.state.artist} onChange={this.onChangeArtist} required />
                     </div>
 
                     {/* Streams */}
                     <div className="form-group">
                         <label htmlFor="streams" className="streams">Total Song Streams: </label>
-                        <input id="streams" type="number" value={this.state.streams} onChange={this.onChangeStreams} />
+                        <input id="streams" type="number" value={this.state.streams} onChange={this.onChangeStreams} required />
                     </div>
 
                     {/* Album */}
                     <div className="form-group">
                         <label htmlFor="album" className="album">Song Album: </label>
-                        <input id="album" type="text" value={this.state.album} onChange={this.onChangeAlbum} />
+                        <input id="album" type="text" value={this.state.album} onChange={this.onChangeAlbum} required />
                     </div>
 
                     {/* Submit Button */}

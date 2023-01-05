@@ -1,18 +1,58 @@
-<form method="post" action="process.php"> 
-    <fieldset id="f1">
-        <label>URL</label><input type="text" name="url" size="50"/>
-    </fieldset>    
-    <fieldset id="f2">
-        <p><input type="checkbox" name="ck1" value="option1" /> Yes</p>
-        <p><input type="checkbox" name="ck2" value="option2" /> No</p>
-        <p><input type="checkbox" name="ck3" value="option3" /> Maybe</p>
-    </fieldset>  
-    <fieldset id="f3">
-        <input type="checkbox" name="ck4" value="option4" /> Great
-        <input type="checkbox" name="ck5" value="option5" /> Average
-        <input type="checkbox" name="ck6" value="option6" /> Poor
-    </fieldset >
-    <fieldset id="f4">
-        <input type="submit" value="Submit">
-    </fieldset>
-</form>
+<div>
+    <form onSubmit={submit}>
+        {/* Song Title */}
+        <div className="form-group">
+            <label>Add Song Title: </label>
+            <input type="text"
+                className="form-control"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+            />
+        </div>
+
+        {/* Cover */}
+        <div className="form-group">
+            <label>Add Release Year: </label>
+            <input type="text"
+                className="form-control"
+                value={cover}
+                onChange={(e) => setCover(e.target.value)}
+            />
+        </div>
+
+        {/* Artist */}
+        <div className="form-group">
+            <label>Add Artist:</label>
+            <input type="text"
+                className="form-control"
+                value={artist}
+                onChange={(e) => setArtist(e.target.value)}
+            />
+        </div>
+
+        {/* Streams */}
+        <div className="form-group">
+            <label>Add Total Streams Worldwide:</label>
+            <input type="text"
+                className="form-control"
+                value={streams}
+                onChange={(e) => setStreams(e.target.value)}
+            />
+        </div>
+
+        {/* Album */}
+        <div className="form-group">
+            <label>Add Album:</label>
+            <input type="text"
+                className="form-control"
+                value={album}
+                onChange={(e) => setAlbum(e.target.value)}
+            />
+        </div>
+
+        {/* Submit Button */}
+        <div className="form-group">
+            <input type="submit" value="Save Song" className="btn btn-primary" ></input>
+        </div>
+    </form>
+</div>
