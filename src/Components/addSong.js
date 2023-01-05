@@ -1,6 +1,7 @@
 //Imports
 import axios from "axios";
 import React from "react";
+import '../App.css';
 
 export class AddSong extends React.Component {
     //Constructor
@@ -30,7 +31,7 @@ export class AddSong extends React.Component {
         e.preventDefault();
 
         //Print to Console
-        console.log(`Button Clicked\n${this.state.title}\n${this.state.cover}\n${this.state.artist}\n${this.state.streams}\n${this.state.albums}`);
+        console.log(`Button Clicked!\nTitle: ${this.state.title}\nCover: ${this.state.cover}\nArtist: ${this.state.artist}\nStreams: ${this.state.streams}\nAlbums: ${this.state.albums}`);
 
         const song = {
             title: this.state.title,
@@ -44,8 +45,8 @@ export class AddSong extends React.Component {
         axios.post("http://localhost:2000/api/song", song)
             .then(console.log("HTTP Request Sent"))
             .catch((error) => {
-                    console.log(error)
-                });
+                console.log(error)
+            });
 
         //Reset to blank
         this.setState = {
@@ -94,44 +95,47 @@ export class AddSong extends React.Component {
 
     render() {
         return (
+            //Print to Screen
             <div>
                 {/* Print to screen */}
                 <h2>Add New Song Details Below!</h2>
+                <br></br>
 
                 {/* Form to Add Song to Array */}
                 <form onSubmit={this.submitSong}>
                     {/* Title */}
                     <div className="form-group">
-                        <label>Add Song Title: </label>
-                        <input type="text" className="form-control" value={this.state.title} onChange={this.onChangeTitle} />
+                        <label htmlFor="title" className="title">Song Title: </label>
+                        <input id="title" type="text" value={this.state.title} onChange={this.onChangeTitle} />
                     </div>
 
                     {/* Cover */}
                     <div className="form-group">
-                        <label>Add Song Cover: </label>
-                        <input type="text" className="form-control" value={this.state.cover} onChange={this.onChangeCover} />
+                        <label htmlFor="cover" className="cover">Song Cover: </label>
+                        <input id="cover" type="text" value={this.state.cover} onChange={this.onChangeCover} />
                     </div>
 
                     {/* Artist */}
                     <div className="form-group">
-                        <label>Add Song Artist: </label>
-                        <input type="text" className="form-control" value={this.state.artist} onChange={this.onChangeArtist} />
+                        <label htmlFor="artist" className="artist">Song Artist: </label>
+                        <input id="artist" type="text" value={this.state.artist} onChange={this.onChangeArtist} />
                     </div>
 
                     {/* Streams */}
                     <div className="form-group">
-                        <label>Add Total Song Streams: </label>
-                        <input type="number" className="form-control" value={this.state.streams} onChange={this.onChangeStreams} />
+                        <label htmlFor="streams" className="streams">Total Song Streams: </label>
+                        <input id="streams" type="number" value={this.state.streams} onChange={this.onChangeStreams} />
                     </div>
 
                     {/* Album */}
                     <div className="form-group">
-                        <label>Add Song Album: </label>
-                        <input type="text" className="form-control" value={this.state.albums} onChange={this.onChangeAlbum} />
+                        <label htmlFor="album" className="album">Song Album: </label>
+                        <input id="album" type="text" value={this.state.albums} onChange={this.onChangeAlbum} />
                     </div>
 
                     {/* Submit Button */}
-                    <input type="submit" value="Add Song" />
+                    <br></br>
+                    <input className="submit" type="submit" value="Add Song" />
                 </form>
             </div>
         )

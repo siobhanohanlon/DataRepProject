@@ -27,7 +27,7 @@ const songSchema = new mongoose.Schema({
 });
 
 //Model to interact with database
-const songModel = mongoose.model('listSongs', songSchema);
+const songModel = mongoose.model('listsongs', songSchema);
 
 //Body Parser to pass info from post form
 const bodyParser = require("body-parser");
