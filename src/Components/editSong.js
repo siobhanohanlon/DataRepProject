@@ -22,7 +22,7 @@ export function EditSong(props) {
     useEffect(() => {
         //axios is a promised based web client
         //make a HTTP Request with GET method and pass as part of the url.
-        axios.get("http://localhost:2000/api/song/" + id)
+        axios.get("http://localhost:2000/api/songs/" + id)
             .then((response) => {
                 // Assign Response data to the arrays using useState.
                 setTitle(response.data.title);
@@ -50,7 +50,7 @@ export function EditSong(props) {
         };
 
         //Save Data
-        axios.put("http://localhost:2000/api/song/" + id, newSong)
+        axios.put("http://localhost:2000/api/songs/" + id, newSong)
             .then((res) => {
                 console.log(res.data);
                 navigate('/songList');

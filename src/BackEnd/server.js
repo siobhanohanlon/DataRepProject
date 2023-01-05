@@ -27,7 +27,7 @@ const songSchema = new mongoose.Schema({
 });
 
 //Model to interact with database
-const songModel = mongoose.model('listsongs', songSchema);
+const songModel = mongoose.model('listSongs', songSchema);
 
 //Body Parser to pass info from post form
 const bodyParser = require("body-parser");
@@ -82,7 +82,7 @@ app.get('/api/songs/:id', (req, res) => {
 })
 
 //Update by Id
-app.put('/api/song/:id', (req, res) => {
+app.put('/api/songs/:id', (req, res) => {
   console.log("Song #" + req.params.id + " has been Updated");
 
   //Update songModel
@@ -93,7 +93,7 @@ app.put('/api/song/:id', (req, res) => {
 })
 
 //Delete by ID
-app.delete('/api/song/:id', (req, res) => {
+app.delete('/api/songs/:id', (req, res) => {
   console.log('Deleting Song with ID: ' + req.params.id);
 
   //Find Song by ID and Delete

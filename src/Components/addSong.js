@@ -21,7 +21,7 @@ export class AddSong extends React.Component {
             title: '',
             cover: '',
             artist: '',
-            streams: '',
+            streams: 0,
             albums: ''
         }
     }
@@ -38,11 +38,11 @@ export class AddSong extends React.Component {
             cover: this.state.cover,
             artist: this.state.artist,
             streams: this.state.streams,
-            albums: this.state.albums,
+            albums: this.state.albums
         }
 
         //Generate HTTP Request 
-        axios.post("http://localhost:2000/api/song", song)
+        axios.post("http://localhost:2000/api/songs", song)
             .then(console.log("HTTP Request Sent"))
             .catch((error) => {
                 console.log(error)
@@ -53,7 +53,7 @@ export class AddSong extends React.Component {
             title: '',
             cover: '',
             artist: '',
-            streams: '',
+            streams: 0,
             albums: ''
         }
     }
