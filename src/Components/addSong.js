@@ -1,7 +1,6 @@
 //Imports
 import axios from "axios";
 import React from "react";
-import '../App.css';
 
 export class AddSong extends React.Component {
     //Constructor
@@ -10,6 +9,7 @@ export class AddSong extends React.Component {
 
         //Bind to Event
         this.submitSong = this.submitSong.bind(this);
+
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeCover = this.onChangeCover.bind(this);
         this.onChangeArtist = this.onChangeArtist.bind(this);
@@ -33,7 +33,7 @@ export class AddSong extends React.Component {
         //Print to Console
         console.log(`Button Clicked!\nTitle: ${this.state.title}\nCover: ${this.state.cover}\nArtist: ${this.state.artist}\nStreams: ${this.state.streams}\nAlbums: ${this.state.albums}`);
 
-        const song = {
+        const songs = {
             title: this.state.title,
             cover: this.state.cover,
             artist: this.state.artist,
@@ -42,20 +42,20 @@ export class AddSong extends React.Component {
         }
 
         //Generate HTTP Request 
-        axios.post("http://localhost:2000/api/songs", song)
+        axios.post("http://localhost:2000/api/songs", songs)
             .then(console.log("HTTP Request Sent"))
             .catch((error) => {
                 console.log(error)
             });
 
         //Reset to blank
-        this.setState = {
+        this.setState({
             title: '',
             cover: '',
             artist: '',
             streams: 0,
             albums: ''
-        }
+        })
     }
 
     //Change Title
