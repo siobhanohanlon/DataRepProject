@@ -22,7 +22,7 @@ export class AddSong extends React.Component {
             cover: '',
             artist: '',
             streams: 0,
-            albums: ''
+            album: ''
         }
     }
 
@@ -31,14 +31,14 @@ export class AddSong extends React.Component {
         e.preventDefault();
 
         //Print to Console
-        console.log(`Button Clicked!\nTitle: ${this.state.title}\nCover: ${this.state.cover}\nArtist: ${this.state.artist}\nStreams: ${this.state.streams}\nAlbums: ${this.state.albums}`);
+        console.log(`Button Clicked!\nTitle: ${this.state.title}\nCover: ${this.state.cover}\nArtist: ${this.state.artist}\nStreams: ${this.state.streams}\nAlbums: ${this.state.album}`);
 
         const songs = {
             title: this.state.title,
             cover: this.state.cover,
             artist: this.state.artist,
             streams: this.state.streams,
-            albums: this.state.albums
+            album: this.state.album
         }
 
         //Generate HTTP Request 
@@ -54,7 +54,7 @@ export class AddSong extends React.Component {
             cover: '',
             artist: '',
             streams: 0,
-            albums: ''
+            album: ''
         })
     }
 
@@ -89,7 +89,7 @@ export class AddSong extends React.Component {
     //Change Album
     onChangeAlbum(e) {
         this.setState({
-            albums: e.target.value
+            album: e.target.value
         })
     }
 
@@ -130,7 +130,7 @@ export class AddSong extends React.Component {
                     {/* Album */}
                     <div className="form-group">
                         <label htmlFor="album" className="album">Song Album: </label>
-                        <input id="album" type="text" value={this.state.albums} onChange={this.onChangeAlbum} />
+                        <input id="album" type="text" value={this.state.album} onChange={this.onChangeAlbum} />
                     </div>
 
                     {/* Submit Button */}

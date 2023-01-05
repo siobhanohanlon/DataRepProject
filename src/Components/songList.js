@@ -16,8 +16,8 @@ export class SongList extends React.Component {
     //Delete Song
     DeleteSong(e) {
         e.preventDefault();
-        axios.delete('http://localhost:2000/api/song/' + this.props.song._id) 
-            .then((res) => { this.props.Reload(); }) 
+        axios.delete('http://localhost:2000/api/song/' + this.props.song._id)
+            .then((res) => { this.props.Reload(); })
             .catch();
     }
 
@@ -25,24 +25,27 @@ export class SongList extends React.Component {
     render() {
         return (
             <div className="SongItem">
+                <img src = {this.props.song.cover}></img>
                 {/* Print out info from Array as Cards */}
                 <Card>
                     {/* Song Title */}
-                    <Card.Header>{this.props.song.title}</Card.Header>
+                    {/* <Card.Img type="alt">{this.props.song.cover}</Card.Img> */}
 
                     {/* Displaying bootstrap Song cards by using props */}
                     <Card.Body>
-                        <Card.Title>{this.props.song.cover}</Card.Title>
+                        <Card.Header>{this.props.song.title}</Card.Header>
                         <Card.Title>{this.props.song.artist}</Card.Title>
-                        <Card.Title>{this.props.song.streams}</Card.Title>
-                        <Card.Title>{this.props.song.album}</Card.Title>
+                        <Card.Subtitle>Album: {this.props.song.album}</Card.Subtitle>
+                        <Card.Text>Total Steams: {this.props.song.streams}</Card.Text>
                     </Card.Body>
 
-                    {/* Edit */}
-                    <Link to={'/edit/' + this.props.song._id} className="btn btn-primary">Edit</Link>
-                    
-                    {/* Deletes Song and reloads page */}
-                    <Button variant="danger" onClick={this.DeleteSong}>Delete</Button>
+                    <Card.Footer>
+                        {/* Edit */}
+                        <Link to={'/editSong/:' + this.props.song._id} className="btn btn-primary">Edit</Link>
+
+                        {/* Deletes Song and reloads page */}
+                        <Button variant="danger" onClick={this.DeleteSong} style={{margin: "10px"}}>Delete</Button>
+                    </Card.Footer>
                 </Card>
             </div>
         )

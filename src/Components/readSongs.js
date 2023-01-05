@@ -16,11 +16,11 @@ export class ReadSong extends React.Component {
 
     //Reload
     reload() {
-        this.connect();
+        this.componentDidMount();
     }
 
     //Connect and get data
-    connect() {
+    componentDidMount() {
         //Makes HTTP Request to get json
         axios.get('http://localhost:2000/api/songs')
             //When Request Completed

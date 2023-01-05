@@ -21,7 +21,7 @@ async function main() {
 const songSchema = new mongoose.Schema({
   title: String,
   cover: String,
-  author: String,
+  artist: String,
   streams: Number,
   album: String
 });
@@ -61,7 +61,7 @@ app.post('/api/songs', (req, res) => {
   songModel.create({
     title: req.body.title,
     cover: req.body.cover,
-    author: req.body.author,
+    artist: req.body.artist,
     streams: req.body.streams,
     album: req.body.album
   })

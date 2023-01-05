@@ -22,7 +22,7 @@ export function EditSong(props) {
     useEffect(() => {
         //axios is a promised based web client
         //make a HTTP Request with GET method and pass as part of the url.
-        axios.get("http://localhost:2000/api/songs/" + id)
+        axios.get("http://localhost:2000/api/songs/:" + id)
             .then((response) => {
                 // Assign Response data to the arrays using useState.
                 setTitle(response.data.title);
@@ -40,7 +40,7 @@ export function EditSong(props) {
         event.preventDefault();
 
         //New Book Data Assigned
-        const newSong = {
+        const changeSong = {
             id: id,
             title: title,
             cover: cover,
@@ -50,70 +50,56 @@ export function EditSong(props) {
         };
 
         //Save Data
-        axios.put("http://localhost:2000/api/songs/" + id, newSong)
+        axios.put("http://localhost:2000/api/songs/" + id, changeSong)
             .then((res) => {
                 console.log(res.data);
-                navigate('/songList');
+                navigate('/readSongs');
             });
     }
+
+    //Output
     return (
         <div>
-            <form onSubmit={submit}>
-                {/* Song Title */}
-                <div className="form-group">
-                    <label>Add Song Title: </label>
-                    <input type="text"
-                        className="form-control"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </div>
+                {/* Print to screen */}
+                <h2>Add New Song Details Below!</h2>
+                <br></br>
 
-                {/* Cover */}
-                <div className="form-group">
-                    <label>Add Release Year: </label>
-                    <input type="text"
-                        className="form-control"
-                        value={cover}
-                        onChange={(e) => setCover(e.target.value)}
-                    />
-                </div>
+                {/* Form to Add Song to Array */}
+                <form onSubmit={this.submitSong}>
+                    {/* Title */}
+                    <div className="form-group">
+                        <label htmlFor="title" className="title">Song Title: </label>
+                        <input id="title" type="text" value={title} onChange={this.onChangeTitle} />
+                    </div>
 
-                {/* Author */}
-                <div className="form-group">
-                    <label>Add Artist:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={artist}
-                        onChange={(e) => setArtist(e.target.value)}
-                    />
-                </div>
+                    {/* Cover */}
+                    <div className="form-group">
+                        <label htmlFor="cover" className="cover">Song Cover: </label>
+                        <input id="cover" type="text" value={cover} onChange={this.onChangeCover} />
+                    </div>
 
-                {/* Streams */}
-                <div className="form-group">
-                    <label>Add Total Streams Worldwide:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={streams}
-                        onChange={(e) => setStreams(e.target.value)}
-                    />
-                </div>
+                    {/* Artist */}
+                    <div className="form-group">
+                        <label htmlFor="artist" className="artist">Song Artist: </label>
+                        <input id="artist" type="text" value={artist} onChange={this.onChangeArtist} />
+                    </div>
 
-                {/* Album */}
-                <div className="form-group">
-                    <label>Add Album:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={album}
-                        onChange={(e) => setAlbum(e.target.value)}
-                    />
-                </div>
+                    {/* Streams */}
+                    <div className="form-group">
+                        <label htmlFor="streams" className="streams">Total Song Streams: </label>
+                        <input id="streams" type="number" value={streams} onChange={this.onChangeStreams} />
+                    </div>
 
-                {/* Submit Button */}
-                <div className="form-group">
-                    <input type="submit" value="Edit Song" className="btn btn-primary" ></input>
-                </div>
-            </form>
-        </div>
+                    {/* Album */}
+                    <div className="form-group">
+                        <label htmlFor="album" className="album">Song Album: </label>
+                        <input id="album" type="text" value={album} onChange={this.onChangeAlbum} />
+                    </div>
+
+                    {/* Submit Button */}
+                    <br></br>
+                    <input className="submit" type="submit" value="Add Song" />
+                </form>
+            </div>
     );
 }
