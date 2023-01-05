@@ -7,12 +7,13 @@ const cors = require('cors');
 //Mongoose- To connect to my database
 const mongoose = require('mongoose');
 
-//will make the connection with the database
+//Calls main to make a connection with the database
 main().catch(err => console.log(err));
 
 //Giving database address
 async function main() {
-  await mongoose.connect('mongodb+srv://admin:<pass>@cluster0.uacixmd.mongodb.net/Cluster0');
+  //Connect to Cluster- Open to all IP Addresses
+  await mongoose.connect('mongodb+srv://admin:pass@songcluster.j1ijsdr.mongodb.net/test');
   //Username: admin Password: pass
 }
 
@@ -21,7 +22,7 @@ const songSchema = new mongoose.Schema({
   title: String,
   cover: String,
   author: String,
-  streams: Int16Array,
+  streams: Number,
   album: String
 });
 
@@ -46,7 +47,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-//HTTP is handled by req & res
+//HTTP is handled by req & res, Gets all json Data
 app.get('/api/songs', (req, res) => {
   //To interact to database
   songModel.find((error, data) => {
@@ -54,7 +55,7 @@ app.get('/api/songs', (req, res) => {
   })
 })
 
-//Put data embedded body- wont display a url
+//Put data embedded body
 app.post('/api/songs', (req, res) => {
   //Write data to page
   songModel.create({
@@ -66,15 +67,15 @@ app.post('/api/songs', (req, res) => {
   })
 
   //Update User
-  res.send('Data Received Successfully');
+  res.send('Song Data Received Successfully');
 })
 
 //Pass ID to URL
 // ' : ' is to say variable
 app.get('/api/songs/:id', (req, res) => {
-  //console.log(req.params.id);
+  console.log("Song ID: " + req.params.id);
 
-  //Find Song Details
+  //Find Song Details by ID
   songModel.findById(req.params.id, (error, data) => {
     res.json(data);
   })
@@ -82,7 +83,7 @@ app.get('/api/songs/:id', (req, res) => {
 
 //Update by Id
 app.put('/api/song/:id', (req, res) => {
-  //console.log("Update: " + req.params.id);
+  console.log("Song #" + req.params.id + " has been Updated");
 
   //Update songModel
   songModel.findByIdAndUpdate(req.params.id, req.body, { new: true },

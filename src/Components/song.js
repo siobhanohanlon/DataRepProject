@@ -1,14 +1,14 @@
 import React from "react";
-import { songList } from './songList';
+import { SongList } from './songList';
 
 export class Song extends React.Component {
     //Run
     render() {
-        //Return Song Array by map function
-        return this.props.songs.map(
+        //Return Song Array by map 
+        return this.props.song.map(
             (song) => {
                 // Assign Unique ID
-                return <songItem song={song} key={song._id}></songItem>
+                return <SongList song={song} key={song._id} Reload={this.props.Reload}></SongList>
             }
         );
     }

@@ -11,39 +11,43 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
 //Import Components
-import { Add } from './components/addArtists';
-//import { Read } from './components/readArtist';
-//import { Edit } from './components/editArtists';
+import { AddSong } from './components/addSong';
+import { ReadSong } from './components/readSongs';
+import { EditSong } from './components/editSong';
 
 //Import Router
-import { BrowserRouter as Router,
-         Routes,  Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes, Route
+} from 'react-router-dom';
 
 //Class
 class App extends React.Component {
   //Runs Code
-  render(){
+  render() {
     //Returns after running
     return (
       <Router>
         <div className="App">
           {/* Define NavBar */}
           <Navbar bg="primary" variant="dark">
-          <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/add">Add Song</Nav.Link>
-            <Nav.Link href="/edit">Edit Song</Nav.Link>
-            </Nav>
-          </Container>
+            <Container>
+              <Navbar.Brand href="/">Personal Song Dictionary</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="/readSong">Home</Nav.Link>
+                <Nav.Link href="/addSong">Add Song</Nav.Link>
+                <Nav.Link href="/editSong">Edit Song</Nav.Link>
+              </Nav>
+            </Container>
           </Navbar>
-          
+
           {/* Use Routing to change to page and call different components */}
           <Routes>
-            {/*<Route path = '/' element = {<Read></Read>}></Route>
-            <Route path = '/add' element = {<Add></Add>}></Route>
-            <Route path="/edit/:id" element={<Edit></Edit>}></Route> */}
+            {/* Make it so Home is Read Page */}
+            <Route path='/' element={<ReadSong></ReadSong>}></Route>
+            <Route path='/readSong' element={<ReadSong></ReadSong>}></Route>
+            <Route path='/addSong' element={<AddSong></AddSong>}></Route>
+            <Route path="/editSong/:id" element={<EditSong></EditSong>}></Route>
           </Routes>
         </div>
       </Router>
