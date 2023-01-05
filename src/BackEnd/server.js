@@ -13,7 +13,7 @@ main().catch(err => console.log(err));
 //Giving database address
 async function main() {
   //Connect to Cluster- Open to all IP Addresses
-  await mongoose.connect('mongodb+srv://admin:pass@songcluster.j1ijsdr.mongodb.net/test');
+  await mongoose.connect('mongodb+srv://admin:pass@songcluster.j1ijsdr.mongodb.net/?retryWrites=true&w=majority');
   //Username: admin Password: pass
 }
 

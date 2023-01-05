@@ -34,7 +34,7 @@ export class SongList extends React.Component {
                         </Card.Header>
 
                         <Card.Body>
-                            <Card.Img src={this.props.song.cover} style={{ width: "80%" }}></Card.Img>
+                            <Card.Img src={this.props.song.cover} style={{ width: "200px" }}/>
                             <Card.Title>{this.props.song.artist}</Card.Title>
                             <Card.Subtitle>Album: {this.props.song.album}</Card.Subtitle>
                             <Card.Text>Total Steams: {this.props.song.streams}</Card.Text>
